@@ -126,6 +126,7 @@ function focarTitulo(nome: NomeVista): void {
 const tituloResultados = elemento<HTMLHeadingElement>("#titulo-resultados");
 const statusResultados = elemento<HTMLParagraphElement>("#status-resultados");
 const caixaResultados = elemento<HTMLDivElement>("#caixa-resultados");
+const resumoContagens = elemento<HTMLDivElement>("#resumo-contagens");
 const btnTentar = elemento<HTMLButtonElement>("#btn-tentar-novamente");
 const cartoes = elemento<HTMLDivElement>("#cartoes");
 const detalheBusca = elemento<HTMLParagraphElement>("#detalhe-busca");
@@ -154,7 +155,7 @@ async function exibirResultados(consultaBruta: string): Promise<void> {
 
     const consulta = montarConsulta(consultaBruta);
     const resultados = planos.map((plano) => buscar(plano, consulta));
-    renderizarResultados(cartoes, detalheBusca, notaOrdem, consulta, resultados);
+    renderizarResultados(resumoContagens, cartoes, detalheBusca, notaOrdem, consulta, resultados);
 
     caixaResultados.hidden = false;
     statusResultados.textContent = resultados.every((r) => r.total === 0)

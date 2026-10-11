@@ -36,6 +36,10 @@ function fraseDeContagem(total: number): string {
   return `Aparece ${total} vezes.`;
 }
 
+function rotuloMencoes(total: number): string {
+  return total === 1 ? "1 menção" : `${total} menções`;
+}
+
 /** Ordem neutra: alfabética fixa OU sorteada a cada busca (nunca ranking). */
 export function ordenarResultados(resultados: ResultadoPlano[]): ResultadoPlano[] {
   const copia = [...resultados];
@@ -50,6 +54,7 @@ export function ordenarResultados(resultados: ResultadoPlano[]): ResultadoPlano[
 }
 
 export function renderizarResultados(
+  alvoResumo: HTMLElement,
   alvoCartoes: HTMLElement,
   alvoDetalhe: HTMLElement,
   alvoOrdem: HTMLElement,
@@ -61,7 +66,17 @@ export function renderizarResultados(
     CONFIG.ordemExibicao === "aleatoria"
       ? "A ordem dos candidatos é sorteada a cada busca. Os dois recebem o mesmo tratamento."
       : "Os candidatos são exibidos em ordem alfabética.";
-  alvoCartoes.replaceChildren(...ordenarResultados(resultados).map(cartao));
+  const ordenados = ordenarResultados(resultados);
+  alvoResumo.replaceChildren(...ordenados.map(caixaResumo));
+  alvoCartoes.replaceChildren(...ordenados.map(cartao));
+}
+
+/** Caixa compacta (nome + total de menções) exibida antes do aviso. */
+function caixaResumo(resultado: ResultadoPlano): HTMLElement {
+  const caixa = criar("div", "resumo-caixa");
+  caixa.append(texto("p", resultado.candidato, "resumo-nome"));
+  caixa.append(texto("p", rotuloMencoes(resultado.total), "resumo-total"));
+  return caixa;
 }
 
 function detalheDaBusca(consulta: Consulta): string {

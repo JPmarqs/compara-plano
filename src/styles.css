@@ -300,6 +300,37 @@ button {
   font-weight: 700;
 }
 
+/* Resumo: duas caixas lado a lado, inclusive no mobile. */
+.grade-resumo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-block: 1rem 0.25rem;
+}
+
+.resumo-caixa {
+  border: 2px solid var(--cor-borda);
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.5rem;
+  background: var(--cor-fundo-suave);
+  min-width: 0;
+  text-align: center;
+}
+
+.resumo-nome {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+.resumo-total {
+  margin: 0.2rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--cor-primaria-escuro);
+}
+
 .aviso {
   border: 2px solid var(--cor-aviso-borda);
   border-left-width: 10px;
