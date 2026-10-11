@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Planos 2026">
+  <rect width="512" height="512" rx="72" fill="#0a4f8f"/>
+  <!-- Duas colunas idênticas: os dois planos lado a lado, com o mesmo tratamento. -->
+  <rect x="92" y="132" width="144" height="248" rx="14" fill="#ffffff"/>
+  <rect x="276" y="132" width="144" height="248" rx="14" fill="#ffffff"/>
+  <rect x="118" y="176" width="92" height="20" rx="10" fill="#0a4f8f"/>
+  <rect x="302" y="176" width="92" height="20" rx="10" fill="#0a4f8f"/>
+  <rect x="118" y="220" width="92" height="14" rx="7" fill="#0a4f8f"/>
+  <rect x="302" y="220" width="92" height="14" rx="7" fill="#0a4f8f"/>
+</svg>

@@ -1,0 +1,32 @@
+{
+  "candidato": "Candidato Alfa (exemplo fictício)",
+  "versao": "exemplo-1",
+  "data_coleta": "2026-10-10",
+  "url_pdf": "https://example.org/tse/plano-de-governo-candidato-alfa.pdf",
+  "paginas": [
+    {
+      "numero": 1,
+      "texto": "Plano de governo do Candidato Alfa — exemplo fictício para testes. A proposta parte de quatro compromissos com a população: serviços públicos próximos de quem precisa, geração de trabalho com renda digna, proteção às famílias e gestão fiscal responsável. A educação é apresentada como base de qualquer desenvolvimento duradouro, ao lado da saúde e da segurança. Nada neste documento representa a posição de partidos ou candidatos reais."
+    },
+    {
+      "numero": 2,
+      "texto": "Na área da educação, o plano prevê a ampliação da rede de creches, merenda escolar de qualidade e reforço do transporte escolar no campo. As escolas receberão manutenção anual e internet de boa qualidade. A formação continuada de professores, com planos de carreira claros, é apontada como condição para melhorar o aprendizado. O texto afirma que a educação precisa de metas públicas e de acompanhamento independente, com resultados abertos à população."
+    },
+    {
+      "numero": 3,
+      "texto": "O programa educacional proposto inclui reforço escolar, bolsas de estudo para estudantes de baixa renda e parcerias com universidades públicas. Serão criados núcleos de educação digital em bibliotecas e centros comunitários. A meta declarada é dobrar a oferta de vagas em cursos técnicos integrados ao ensino médio, com avaliação pública anual dos resultados e participação das comunidades escolares na definição das prioridades."
+    },
+    {
+      "numero": 4,
+      "texto": "Na saúde, o plano prevê a ampliação das unidades básicas, a redução do tempo de espera por consultas e exames e o reforço da atenção primária. Os hospitais de referência receberão mais equipes de apoio e equipamentos. A vigilância em saúde será fortalecida, com laboratórios regionais e treinamento permanente das equipes. Orçamento e metas serão publicados em painel aberto."
+    },
+    {
+      "numero": 5,
+      "texto": "Trabalho e renda: microcrédito para pequenos negócios, qualificação profissional gratuita e apoio a cooperativas de trabalho. O documento liga qualificação e educação técnica à produtividade e à renda das famílias. Estímulo ao comércio local, simplificação de licenças e apoio ao empreendedorismo de jovens completam o bloco de trabalho."
+    },
+    {
+      "numero": 6,
+      "texto": "Meio ambiente e mobilidade: transporte público elétrico nas cidades maiores, ciclovia conectada e integração tarifária. Educação ambiental nas escolas e recuperação de nascentes são apresentadas como prioridades. A gestão propõe inventário público de áreas degradadas e metas de reflorestamento com acompanhamento independente."
+    }
+  ]
+}

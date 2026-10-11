@@ -1,0 +1,15 @@
+{
+  "name": "Planos 2026 — busca nos planos de governo",
+  "short_name": "Planos 2026",
+  "description": "Busque uma palavra e veja o que os dois planos de governo do 2º turno de 2026 dizem sobre ela. Sem login e sem rastreamento.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a4f8f",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

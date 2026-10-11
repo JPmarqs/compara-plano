@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Busque uma palavra e veja, lado a lado, o que os dois planos de governo do 2º turno de 2026 dizem sobre ela — direto dos PDFs oficiais do TSE. Sem login e sem rastreamento."
+    />
+    <meta name="theme-color" content="#0a4f8f" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <title>Planos 2026 — busca nos planos de governo</title>
+  </head>
+  <body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="cabecalho">
+      <p class="marca"><a href="#/">Planos 2026</a></p>
+      <div class="controles" role="group" aria-label="Ajustes de visualização">
+        <button type="button" id="btn-fonte-menor" class="botao-controle" aria-label="Diminuir o tamanho da letra">
+          A&minus;
+        </button>
+        <button type="button" id="btn-fonte-maior" class="botao-controle" aria-label="Aumentar o tamanho da letra">
+          A+
+        </button>
+        <button type="button" id="btn-alto-contraste" class="botao-controle" aria-pressed="false">
+          Alto contraste
+        </button>
+      </div>
+    </header>
+
+    <nav aria-label="Navegação principal" class="navegacao">
+      <ul>
+        <li><a href="#/" data-rota="inicio">Início</a></li>
+        <li><a href="#/sobre" data-rota="sobre">Sobre e metodologia</a></li>
+      </ul>
+    </nav>
+
+    <main id="conteudo" tabindex="-1">
+      <!-- ============ VISTA: INÍCIO / BUSCA ============ -->
+      <section id="vista-inicio" class="vista" aria-labelledby="titulo-inicio">
+        <h1 id="titulo-inicio" tabindex="-1">Veja o que os dois planos de governo dizem sobre um tema</h1>
+        <p class="destaque">
+          Digite uma palavra — como “educação” — e compare os trechos dos dois planos, lado a lado, com a página
+          exata do PDF oficial.
+        </p>
+
+        <form id="form-busca" class="formulario-busca" novalidate>
+          <div class="campo-linha">
+            <label for="campo-busca">Digite uma palavra ou tema</label>
+            <input id="campo-busca" name="q" type="search" autocomplete="off" spellcheck="false"
+              aria-describedby="ajuda-busca erro-busca" />
+          </div>
+          <p id="ajuda-busca" class="ajuda">Mínimo de 3 letras. Você não precisa escrever com acento.</p>
+          <p id="erro-busca" class="erro" role="alert"></p>
+          <button type="submit" class="botao-principal">Buscar nos dois planos</button>
+        </form>
+
+        <h2>Temas sugeridos</h2>
+        <ul id="lista-temas" class="lista-temas"></ul>
+
+        <p class="nota-privacidade">
+          Sem login, sem cookies de rastreamento e sem envio de dados pessoais. Suas preferências de leitura ficam
+          guardadas apenas neste aparelho.
+        </p>
+      </section>
+
+      <!-- ============ VISTA: RESULTADOS ============ -->
+      <section id="vista-resultados" class="vista" aria-labelledby="titulo-resultados" hidden>
+        <h1 id="titulo-resultados" tabindex="-1">Resultados</h1>
+        <p id="status-resultados" class="status" role="status"></p>
+
+        <div id="caixa-resultados" hidden>
+          <p class="aviso" role="note">
+            A quantidade de menções não indica a qualidade ou a viabilidade das propostas.
+          </p>
+          <p id="detalhe-busca" class="detalhe"></p>
+          <p id="nota-ordem" class="detalhe"></p>
+          <div id="cartoes" class="grade-cartoes"></div>
+        </div>
+
+        <button type="button" id="btn-tentar-novamente" class="botao-secundario" hidden>
+          Tentar carregar de novo
+        </button>
+      </section>
+
+      <!-- ============ VISTA: SOBRE / METODOLOGIA ============ -->
+      <section id="vista-sobre" class="vista" aria-labelledby="titulo-sobre" hidden>
+        <h1 id="titulo-sobre" tabindex="-1">Sobre e metodologia</h1>
+
+        <h2>De onde vêm os dados</h2>
+        <p>
+          Os textos buscados aqui são a extração literal dos PDFs dos planos de governo registrados no Tribunal
+          Superior Eleitoral (TSE) para o 2º turno das eleições gerais de 2026 (25/10/2026). Nada é resumido,
+          reescrito ou interpretado por computador: os trechos mostrados são cópias literais do texto do plano.
+        </p>
+        <p>
+          Todo trecho tem o número da página e um link para abrir essa mesma página no PDF oficial, para que
+          qualquer pessoa possa conferir o original.
+        </p>
+
+        <h2>Dados usados nesta versão</h2>
+        <div id="meta-planos" class="meta-planos"></div>
+        <p id="meta-erro" class="erro" role="status"></p>
+
+        <h2>Como a busca funciona</h2>
+        <ul>
+          <li>A busca roda no seu aparelho (no navegador), sem servidor e sem enviar o que você digitou para lugar nenhum.</li>
+          <li>
+            Antes de comparar, a busca ignora acentos e diferenças entre letras maiúsculas e minúsculas. O texto
+            exibido é sempre o original, com acentos e como está no plano.
+          </li>
+          <li>
+            Ela aceita plural e singular e variações do mesmo radical: quem busca “educação” também encontra
+            “educacional” e “educar”.
+          </li>
+          <li>
+            Para temas definidos (como educação e saúde), a busca inclui também uma lista editável de palavras
+            relacionadas — por exemplo, escola, ensino e professor. Os termos incluídos são informados na tela de
+            resultados.
+          </li>
+          <li>Não existe inteligência artificial generativa no produto: nenhum resumo, parafraseamento ou interpretação automática.</li>
+        </ul>
+
+        <h2>O que a contagem não significa</h2>
+        <p>
+          A quantidade de menções não indica a qualidade ou a viabilidade das propostas. Um plano pode tratar de
+          educação em poucas páginas com textos densos, ou citar a palavra muitas vezes em listas. Contagem é
+          quantidade de aparições da palavra — nada mais.
+        </p>
+
+        <h2>Limitações conhecidas</h2>
+        <ul>
+          <li>
+            A tolerância a variações da palavra usa um radical simples (regras fixas de sufixo). Isso pode criar
+            algumas aproximações imperfeitas — tanto de mais (palavras parecidas que não são do mesmo assunto)
+            quanto de menos (variações fora das regras).
+          </li>
+          <li>A lista de palavras relacionadas é um dicionário configurável, não um conhecimento completo da língua.</li>
+          <li>
+            O texto foi extraído de PDFs. Erros da conversão (colunas trocadas, hifenizações, letras especiais)
+            podem afetar contagens e trechos.
+          </li>
+          <li>A contagem não distingue contexto: uma palavra citada para ser negada conta igual.</li>
+        </ul>
+
+        <h2>Neutralidade</h2>
+        <p>
+          Os dois planos recebem exatamente o mesmo layout, tamanho de letra e destaque. Não há ranking, placar,
+          nota, cor de “melhor/pior” nem barra comparativa. A ordem dos candidatos é sorteada a cada busca (há
+          configuração para ordem alfabética fixa).
+        </p>
+
+        <h2>Privacidade</h2>
+        <p>
+          Sem login, sem cookies de rastreamento, sem dados pessoais e sem envio da sua busca a nenhum servidor.
+          As preferências de leitura (tamanho da letra e alto contraste) ficam salvas apenas neste aparelho, em
+          armazenamento local do navegador. Se houver métricas no futuro, serão apenas anônimas e agregadas.
+        </p>
+
+        <h2>Vínculo e recomendação de voto</h2>
+        <p>
+          Este projeto é independente. Não tem vínculo com partidos, candidatos, campanhas ou instituições
+          políticas, e não recomenda voto algum. A decisão é do eleitor, a partir da leitura dos planos oficiais.
+        </p>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <p>Projeto independente, sem vínculo com partidos ou candidatos. Não recomenda voto.</p>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

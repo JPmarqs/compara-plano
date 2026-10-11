@@ -1,0 +1,450 @@
+/*
+ * Planos 2026 — folha de estilo única, sem frameworks.
+ * Mobile-first; base de 18px; todas as cores verificadas para WCAG 2.1 AA.
+ * Alto contraste: classe ".alto-contraste" em <html>.
+ */
+
+:root {
+  --escala: 1;
+  --cor-fundo: #ffffff;
+  --cor-texto: #1b1b1b; /* 16.5:1 sobre branco */
+  --cor-fundo-suave: #eef1f5;
+  --cor-borda: #5a6270;
+  --cor-link: #0a4f8f; /* 8.3:1 sobre branco */
+  --cor-primaria: #0a4f8f;
+  --cor-primaria-escuro: #083c6e;
+  --cor-texto-sobre-primaria: #ffffff; /* 8.3:1 sobre a cor primária */
+  --cor-foco: #111111;
+  --cor-aviso-fundo: #fff7e0;
+  --cor-aviso-borda: #8a5a00;
+  --cor-aviso-texto: #4a3000; /* 11:1 sobre o fundo do aviso */
+  --cor-marca: #ffe08a;
+  --cor-marca-texto: #1b1b1b; /* 13:1 sobre o amarelo do destaque */
+  --cor-erro: #9b1c1c; /* 8:1 sobre branco */
+}
+
+html.alto-contraste {
+  --cor-fundo: #000000;
+  --cor-texto: #ffffff; /* 21:1 */
+  --cor-fundo-suave: #000000;
+  --cor-borda: #ffffff;
+  --cor-link: #ffff00; /* 19:1 */
+  --cor-primaria: #ffff00;
+  --cor-primaria-escuro: #e6e600;
+  --cor-texto-sobre-primaria: #000000;
+  --cor-foco: #00ffff; /* ciano: visível sobre preto e sobre amarelo */
+  --cor-aviso-fundo: #000000;
+  --cor-aviso-borda: #ffff00;
+  --cor-aviso-texto: #ffff00;
+  --cor-marca: #ffff00;
+  --cor-marca-texto: #000000;
+  --cor-erro: #ff8080;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 1rem = 18px quando a escala está em 1; o botão A+/A− muda só esta variável. */
+html {
+  font-size: calc(18px * var(--escala));
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+.cabecalho,
+.navegacao,
+main,
+.rodape {
+  max-width: 70rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* ---------- Link de pular (primeiro item focável) ---------- */
+.pular {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 20;
+  background: var(--cor-primaria);
+  color: var(--cor-texto-sobre-primaria);
+  padding: 0.8rem 1.2rem;
+  border-radius: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+.pular:focus {
+  left: 0;
+}
+
+/* ---------- Foco visível em tudo ---------- */
+:focus-visible {
+  outline: 3px solid var(--cor-foco);
+  outline-offset: 3px;
+}
+
+/* ---------- Cabeçalho e controles ---------- */
+.cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0.75rem;
+}
+
+.marca {
+  margin: 0;
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+.marca a {
+  color: inherit;
+  text-decoration: none;
+}
+.marca a:hover,
+.marca a:focus-visible {
+  text-decoration: underline;
+}
+
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.botao-controle {
+  font: inherit;
+  font-weight: 700;
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0.4rem 0.9rem;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  border: 2px solid var(--cor-borda);
+  border-radius: 0.5rem;
+}
+.botao-controle[aria-pressed="true"] {
+  background: var(--cor-primaria);
+  color: var(--cor-texto-sobre-primaria);
+  border-color: var(--cor-primaria);
+}
+
+/* ---------- Navegação ---------- */
+.navegacao ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navegacao a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.4rem 1rem;
+  color: var(--cor-link);
+  border-radius: 0.5rem;
+  text-decoration: underline;
+}
+.navegacao a[aria-current="page"] {
+  font-weight: 800;
+  background: var(--cor-fundo-suave);
+  text-decoration-thickness: 3px;
+}
+
+/* ---------- Tipografia geral ---------- */
+h1 {
+  font-size: 1.6rem;
+  line-height: 1.3;
+  margin-block: 1.2rem 0.6rem;
+}
+h2 {
+  font-size: 1.3rem;
+  margin-block: 1.6rem 0.5rem;
+}
+h3 {
+  font-size: 1.1rem;
+  margin-block: 0.4rem;
+}
+p,
+li {
+  max-width: 60ch;
+}
+a {
+  color: var(--cor-link);
+}
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.destaque {
+  font-size: 1.1rem;
+}
+
+/* ---------- Formulário de busca ---------- */
+.formulario-busca {
+  margin-block: 1.2rem;
+  padding: 1.2rem;
+  border: 2px solid var(--cor-borda);
+  border-radius: 0.75rem;
+  background: var(--cor-fundo-suave);
+}
+.campo-linha {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+label {
+  font-weight: 700;
+}
+input[type="search"] {
+  font: inherit;
+  min-height: 56px;
+  padding: 0.5rem 0.8rem;
+  border: 2px solid var(--cor-borda);
+  border-radius: 0.5rem;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  width: 100%;
+  max-width: 32rem;
+}
+.ajuda {
+  margin-block: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.erro {
+  color: var(--cor-erro);
+  font-weight: 700;
+  min-height: 1.2em;
+}
+.status-erro {
+  color: var(--cor-erro);
+  font-weight: 700;
+}
+
+/* ---------- Botões ---------- */
+button {
+  font: inherit;
+  cursor: pointer;
+}
+.botao-principal,
+.botao-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: max(48px, 3.2rem);
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.6rem;
+  font-weight: 700;
+  border: 2px solid var(--cor-primaria);
+  text-decoration: none;
+}
+.botao-principal {
+  background: var(--cor-primaria);
+  color: var(--cor-texto-sobre-primaria);
+  margin-top: 0.6rem;
+}
+.botao-principal:hover {
+  background: var(--cor-primaria-escuro);
+}
+.botao-secundario {
+  background: var(--cor-fundo);
+  color: var(--cor-link);
+  margin-top: 1rem;
+}
+
+/* ---------- Temas sugeridos ---------- */
+.lista-temas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+}
+.tema {
+  font: inherit;
+  font-weight: 700;
+  min-height: 48px;
+  padding: 0.5rem 1.1rem;
+  background: var(--cor-fundo);
+  color: var(--cor-link);
+  border: 2px solid var(--cor-primaria);
+  border-radius: 999px;
+}
+.tema:hover {
+  background: var(--cor-fundo-suave);
+}
+
+.nota-privacidade {
+  margin-top: 1.6rem;
+  font-size: 0.95rem;
+}
+
+/* ---------- Resultados ---------- */
+.status {
+  min-height: 1.2em;
+  font-weight: 700;
+}
+
+.aviso {
+  border: 2px solid var(--cor-aviso-borda);
+  border-left-width: 10px;
+  background: var(--cor-aviso-fundo);
+  color: var(--cor-aviso-texto);
+  font-weight: 700;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-block: 1rem;
+  max-width: none;
+}
+
+.detalhe {
+  font-size: 0.98rem;
+}
+
+.grade-cartoes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-block: 1.2rem;
+}
+
+.cartao {
+  border: 2px solid var(--cor-borda);
+  border-radius: 0.75rem;
+  padding: 1.2rem;
+  background: var(--cor-fundo);
+  min-width: 0; /* evita estouro de conteúdo em grade */
+}
+.cartao h2 {
+  margin-block: 0 0.4rem;
+  font-size: 1.35rem;
+}
+
+.contagem {
+  font-size: 1.15rem;
+}
+.contagem strong,
+.contagem-pagina {
+  font-weight: 400;
+}
+.contagem-total {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--cor-primaria-escuro);
+}
+.fonte,
+.link-pagina,
+.trecho-link,
+.nota,
+.detalhe {
+  font-size: 0.95rem;
+}
+
+.pagina {
+  margin-top: 1.2rem;
+  border-top: 1px solid var(--cor-borda);
+  padding-top: 0.6rem;
+  min-width: 0;
+}
+
+.trechos {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.trecho {
+  background: var(--cor-fundo-suave);
+  border-radius: 0.5rem;
+  padding: 0.9rem;
+  min-width: 0;
+}
+
+.trecho-texto {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  max-width: none;
+}
+
+mark {
+  background: var(--cor-marca);
+  color: var(--cor-marca-texto);
+  padding: 0 0.1em;
+  border-radius: 2px;
+  /* Sublinhado: destaque não depende só da cor. */
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+.vazio {
+  font-weight: 700;
+}
+
+/* ---------- Metadados (Sobre) ---------- */
+.meta-planos {
+  display: grid;
+  gap: 1rem;
+}
+.meta-cartao {
+  border: 2px solid var(--cor-borda);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+.meta-cartao dl {
+  margin: 0.4rem 0;
+}
+.meta-cartao dt {
+  font-weight: 700;
+}
+.meta-cartao dd {
+  margin: 0 0 0.5rem;
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  margin-top: 2.5rem;
+  padding-block: 1rem 2rem;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--cor-borda);
+}
+
+/* ---------- Vistas ---------- */
+.vista[hidden],
+[hidden] {
+  display: none !important;
+}
+
+/* ---------- Desktop: duas colunas lado a lado ---------- */
+@media (min-width: 50rem) {
+  .grade-cartoes {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+/* ---------- Impressão básica ---------- */
+@media print {
+  .cabecalho,
+  .navegacao,
+  .pular {
+    display: none;
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "candidato": "Candidato Beta (exemplo fictício)",
+  "versao": "exemplo-1",
+  "data_coleta": "2026-10-10",
+  "url_pdf": "https://example.org/tse/plano-de-governo-candidato-beta.pdf",
+  "paginas": [
+    {
+      "numero": 1,
+      "texto": "Plano de governo do Candidato Beta — exemplo fictício para testes. O documento organiza as propostas em cinco áreas: saúde, educação, habitação, segurança pública e trabalho. A introdução declara que a educação e a saúde são os dois eixos centrais do primeiro ano de governo, com metas mensuráveis e prestação de contas trimestral à população."
+    },
+    {
+      "numero": 2,
+      "texto": "Saúde: construção de novas unidades básicas de atendimento, contratação de médicos e enfermeiros e compra de equipamentos para o diagnóstico precoce. O plano prevê redução de filas em cirurgias eletivas, telessaúde para municípios pequenos e programa de prevenção de doenças crônicas com equipes comunitárias de referência."
+    },
+    {
+      "numero": 3,
+      "texto": "Educação: o plano propõe jornada ampliada em todas as escolas, com reforço em leitura, matemática e ciências. Cada escola terá plano de desenvolvimento participativo, com professores ouvidos na definição das prioridades. Ampliação da oferta de creches, bolsa permanência para estudantes do ensino técnico e formação inicial e continuada do magistério com acompanhamento em sala de aula são os pilares declarados do programa educacional."
+    },
+    {
+      "numero": 4,
+      "texto": "Segurança pública: policiamento comunitário nas áreas urbanas, proteção a vítimas de violência doméstica e integração das bases de dados das forças de segurança. O plano também prevê centros de convivência para adolescentes, acompanhamento escolar de jovens em risco e programas de ressocialização com avaliação pública dos resultados."
+    },
+    {
+      "numero": 5,
+      "texto": "Trabalho: apoio a startups locais, crédito para cooperativas e programa de educação profissional ligado às empresas da região. O documento estabelece meta de redução do desemprego jovem e prevê concursos públicos com critérios transparentes e prazos definidos."
+    },
+    {
+      "numero": 6,
+      "texto": "Habitação e mobilidade: construção de moradias populares em terrenos urbanos já consolidados, regularização fundiária e reforma de conjuntos habitacionais existentes. No transporte, o plano prevê corredores exclusivos de ônibus, integração de tarifas e iluminação em pontos de espera, além de acessibilidade completa em estações e veículos."
+    }
+  ]
+}
